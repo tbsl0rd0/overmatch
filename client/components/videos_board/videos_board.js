@@ -67,8 +67,6 @@ angular.module('videos_board', [])
       });
     };
 
-    videos_board.get_video_posts('recent', 1);
-
     videos_board.subscribe_videos_board = function() {
       if (is_subscribing_videos_board == false) {
         client_socket.emit('join', {
@@ -78,8 +76,6 @@ angular.module('videos_board', [])
         is_subscribing_videos_board = true;
       }
     };
-
-    videos_board.subscribe_videos_board();
 
     client_socket.on('update_video_post_points', function(data) {
       var index = _.findIndex($scope.video_posts, { _id: data.video_post__id });

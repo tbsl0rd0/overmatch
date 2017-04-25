@@ -19,6 +19,8 @@ angular.module('job_search_board', [])
       });
     };
 
+    job_search_board.get_all_job_search_posts();
+
     job_search_board.remove_all_job_search_posts = function() {
       $scope.posts = [];
     };
@@ -32,6 +34,8 @@ angular.module('job_search_board', [])
         is_subscribing = true;
       }
     };
+
+    job_search_board.subscribe_job_search_board();
 
     job_search_board.unsubscribe_job_search_board = function() {
       if (is_subscribing == true) {

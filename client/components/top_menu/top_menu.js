@@ -72,6 +72,8 @@ angular.module('top_menu', [])
       top_menu.location = 'matching_room_board';
     };
 
+    var is_visiting_to_videos_board = false;
+
     $scope.move_to_videos_board = function() {
       if (!stamp_moving_time()) {
         return;
@@ -83,12 +85,19 @@ angular.module('top_menu', [])
       job_search_board.remove_all_job_search_posts();
       matching_room_board.unsubscribe_matching_room_board();
 
+      if (is_visiting_to_videos_board == false) {
+        videos_board.get_video_posts('recent', 1);
+        videos_board.subscribe_videos_board();
+
+        is_visiting_to_videos_board = true;
+      }
+
       top_menu.location = 'videos_board';
     };
   }
 })
 .factory('top_menu', function() {
   return {
-    location: 'videos_board'
+    location: 'job_search_board'
   };
 });
