@@ -15,9 +15,9 @@ gulp.task('admin_js', function () {
 
     'client/components/bundles/admin_components_bundle.js'
   ])
-	.pipe(concat('js.min.js'))
+	.pipe(concat('javascript.min.js'))
   .pipe(uglify({ mangle: false }))
-	.pipe(gulp.dest('client/dist/admin/js'));
+	.pipe(gulp.dest('client/distribution/admin/javascripts'));
 });
 
 gulp.task('admin_css', function () {
@@ -31,7 +31,7 @@ gulp.task('admin_css', function () {
   ])
 	.pipe(concat('css.min.css'))
   .pipe(clean_css())
-	.pipe(gulp.dest('client/dist/admin/css'));
+	.pipe(gulp.dest('client/distribution/admin/css'));
 });
 
 gulp.task('index_js', function () {
@@ -50,9 +50,9 @@ gulp.task('index_js', function () {
 
     'client/components/bundles/index_components_bundle.js'
   ])
-	.pipe(concat('js.min.js'))
+	.pipe(concat('javascript.min.js'))
   .pipe(uglify({ mangle: false }))
-	.pipe(gulp.dest('client/dist/index/js'));
+	.pipe(gulp.dest('client/distribution/index/javascripts'));
 });
 
 gulp.task('index_css', function () {
@@ -66,7 +66,7 @@ gulp.task('index_css', function () {
   ])
 	.pipe(concat('css.min.css'))
   .pipe(clean_css())
-	.pipe(gulp.dest('client/dist/index/css'));
+	.pipe(gulp.dest('client/distribution/index/css'));
 });
 
 gulp.task('watch', function () {

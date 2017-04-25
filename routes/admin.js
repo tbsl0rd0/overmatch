@@ -15,8 +15,8 @@ router.get('/', function(req, res, next) {
   }
 
   res.render('admin', {
-    css: process.env.NODE_ENV != 'production' ? '/admin/css/css.min.css' : 'https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/dist/admin/css/css.min.css?v=c0soy95m',
-    js: process.env.NODE_ENV != 'production' ? '/admin/js/js.min.js' : 'https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/dist/admin/js/js.min.js?v=c0soy95m'
+    css: process.env.NODE_ENV != 'production' ? '/admin/css/css.min.css' : 'https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/distribution/admin/css/css.min.css?v=c0soy95a',
+    javascript: process.env.NODE_ENV != 'production' ? '/admin/javascripts/javascript.min.js' : 'https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/distribution/admin/javascripts/javascript.min.js?v=c0soy95a'
   });
 });
 
