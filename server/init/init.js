@@ -34,9 +34,9 @@ mongodb.get_db(function(db) {
     .then(function(result) {
       return db.collection('matching_rooms').deleteMany({});
     })
-    .then(function(result) {
-      return db.collection('video_posts').deleteMany({});
-    })
+    // .then(function(result) {
+    //   return db.collection('video_posts').deleteMany({});
+    // })
     // .then(function(result) {
     //   return db.collection('notices').insertOne({
     //     notice: '안녕하세요! 오버매치입니다'
@@ -128,28 +128,7 @@ mongodb.get_db(function(db) {
       ]);
     })
     .then(function(result) {
-      db.collection('public_chat_messages').find({}).toArray(function(error, docs) {
-        var public_chat_messages = [];
-
-        for (var i in docs) {
-          public_chat_messages.push({
-            message: docs[i].message,
-            user: docs[i].user,
-            stat_by: docs[i].stat_by,
-            is_anonymous: docs[i].anony,
-            encrypted_ip: docs[i].ip,
-            date: docs[i].date
-          });
-        }
-
-        db.collection('public_chat_messages').deleteMany({})
-        .then(function(result) {
-          return db.collection('public_chat_messages').insertMany(public_chat_messages);
-        })
-        .then(function(result) {
-          db.close();
-        });
-      });
+      db.close();
     });
   });
 });
