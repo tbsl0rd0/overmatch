@@ -1,0 +1,81 @@
+<div class="card">
+  <div>
+    <div class="header_1" style="color: #F5F5F5;">
+      파티매칭
+    </div>
+  </div>
+  <div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <button class="button blue" style="float: right; margin-right: 15px;" ng-click="move_to_matching_room_creating_form()">
+          방만들기
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="list matching_room_board_scroll">
+          <div class="matching_room" ng-repeat="matching_room in matching_rooms" ng-click="join_matching_room(matching_room.uuid)">
+            <img style="float: left; width: 36px; height: 36px;" ng-src="{{ matching_room.owner.portrait }}">
+            <div class="user_battletag" style="float: left; color: #3996D4; margin-top: 9px; margin-left: 10px;">
+              {{ matching_room.owner.battletag }}
+            </div>
+            <div class="user_level {{ 'user_level_' + matching_room.owner.level.color }}" style="float: left; margin-top: 10px; margin-left: 5px;">
+              <div>
+                {{ matching_room.owner.level.level }}
+              </div>
+              <div class="{{ 'user_level_star_' + matching_room.owner.level.star_number }}" ng-show="matching_room.owner.level.star_number != 0">
+                <i class="fa fa-star" style="margin-top: 0px;"></i>
+                <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+                <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+                <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+                <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+              </div>
+            </div>
+            <div class="user_rank" style="float: left;">
+              <img ng-src="{{ matching_room.owner.rank.rank_icon }}">
+              <div style="color: #000000;">
+                {{ matching_room.owner.rank.rank }}
+              </div>
+            </div>
+            <div class="label blue" style="float: left; margin-top: 10px; margin-left: 10px;" ng-show="matching_room.category == 'quick'">
+              빠대
+            </div>
+            <div class="label purple" style="float: left; margin-top: 10px; margin-left: 10px;" ng-show="matching_room.category == 'competitive'">
+              경쟁
+            </div>
+            <div class="label green" style="float: left; margin-top: 10px; margin-left: 10px;" ng-show="matching_room.category == 'etc'">
+              기타
+            </div>
+            <div class="text" style="float: left; margin-top: 9px; margin-right: 10px; margin-left: 5px;">
+              {{ matching_room.title }}
+            </div>
+            <div class="label green" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="matching_room.wanted.all == true">
+              모두구함
+            </div>
+            <div class="label red" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="matching_room.wanted.all == false && matching_room.wanted.dealer == true">
+              <img style="width: 7px; height: 7px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/dealer.svg"> 딜러구함
+            </div>
+            <div class="label blue" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="matching_room.wanted.all == false && matching_room.wanted.tanker == true">
+              <img style="width: 7px; height: 7px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/tanker.svg"> 탱커구함
+            </div>
+            <div class="label yellow" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="matching_room.wanted.all == false && matching_room.wanted.healer == true">
+              <img style="width: 7px; height: 7px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/healer.svg"> 힐러구함
+            </div>
+            <div class="label purple" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="matching_room.mic == true">
+              <i class="fa fa-microphone"></i> 마이크필수
+            </div>
+            <div class="label light_green" style="float: right; margin-top: 10px; margin-right: 10px; margin-bottom: 10px;" ng-show="matching_room.members.length < matching_room.max_personnel">
+              {{ matching_room.members.length }} / {{ matching_room.max_personnel }}
+            </div>
+            <div class="label gray" style="float: right; margin-top: 10px; margin-right: 10px; margin-bottom: 10px;" ng-show="matching_room.members.length >= matching_room.max_personnel">
+              {{ matching_room.members.length }} / {{ matching_room.max_personnel }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin
+Disallow: /usage
+Disallow: /health_check

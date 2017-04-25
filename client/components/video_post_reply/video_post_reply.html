@@ -1,0 +1,30 @@
+<div>
+  <div class="row" style="height: 5px;"></div>
+  <div class="row">
+    <div class="column_0" style="width: 45px;">
+      <i class="fa fa-reply fa-rotate-180" style="float: left; margin-top: 2px; margin-left: 20px;"></i>
+    </div>
+    <div class="column_0" style="width: 540px;">
+      <div class="user_battletag" style="float: left; color: #3996D4; margin-top: 5px;" ng-click="show_context_menu($event)" ng-show="$ctrl.videoPostReply.is_anonymous == false">
+        {{ $ctrl.videoPostReply.user.battletag }}
+      </div>
+      <div class="user_battletag" style="float: left; cursor: auto; color: #3996D4; margin-top: 5px;" ng-click="show_context_menu($event)" ng-show="$ctrl.videoPostReply.is_anonymous == true">
+        {{ $ctrl.videoPostReply.user.anonymous_battletag }}
+      </div>
+      <div class="text" style="float: left; margin-top: 8px; margin-left: 5px; font-size: 13px;">
+        {{ $ctrl.videoPostReply.reply }}
+      </div>
+    </div>
+    <div class="column_0" style="width: 128px;">
+      <button class="button white" style="float: right; color: #E74C3C; margin-right: 10px;" ng-click="update_points($ctrl.videoPostId, $ctrl.videoPostReply, 'minus')">
+        -1
+      </button>
+      <div class="vidoe_post_reply_points" style="float: right; margin-top: 7px;">
+        {{ $ctrl.videoPostReply.points }}
+      </div>
+      <button class="button white" style="float: right; color: #3996D4;" ng-click="update_points($ctrl.videoPostId, $ctrl.videoPostReply, 'plus')">
+        +1
+      </button>
+    </div>
+  </div>
+</div>

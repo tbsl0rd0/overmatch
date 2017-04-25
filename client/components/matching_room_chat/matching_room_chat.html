@@ -1,0 +1,88 @@
+<div class="card">
+  <div>
+    <div class="header_1" style="color: #F5F5F5;">
+      파티채팅
+    </div>
+  </div>
+  <div>
+    <div class="row">
+      <div class="column_12">
+        <button class="button red" ng-click="leave_matching_room()">
+          <i class="fa fa-arrow-left"></i> 나가기
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="label blue" style="float: left; margin-top: 10px;" ng-show="matching_room_board.current_matching_room.category == 'quick'">
+          빠대
+        </div>
+        <div class="label purple" style="float: left; margin-top: 10px;" ng-show="matching_room_board.current_matching_room.category == 'competitive'">
+          경쟁
+        </div>
+        <div class="label green" style="float: left; margin-top: 10px;" ng-show="matching_room_board.current_matching_room.category == 'etc'">
+          기타
+        </div>
+        <div class="text" style="float: left; margin-top: 9px; margin-right: 10px; margin-left: 5px;">
+          {{ matching_room_board.current_matching_room.title }}
+        </div>
+        <div class="label green" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="matching_room_board.current_matching_room.wanted.all == true">
+          모두구함
+        </div>
+        <div class="label red" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="matching_room_board.current_matching_room.wanted.all == false && matching_room_board.current_matching_room.wanted.dealer == true">
+          <img style="width: 7px; height: 7px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/dealer.svg"> 딜러구함
+        </div>
+        <div class="label blue" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="matching_room_board.current_matching_room.wanted.all == false && matching_room_board.current_matching_room.wanted.tanker == true">
+          <img style="width: 7px; height: 7px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/tanker.svg"> 탱커구함
+        </div>
+        <div class="label yellow" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="matching_room_board.current_matching_room.wanted.all == false && matching_room_board.current_matching_room.wanted.healer == true">
+          <img style="width: 7px; height: 7px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/healer.svg"> 힐러구함
+        </div>
+        <div class="label purple" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="matching_room_board.current_matching_room.mic == true">
+          <i class="fa fa-microphone"></i> 마이크필수
+        </div>
+        <div class="label light_green" style="float: right; margin-top: 10px; margin-bottom: 10px;" ng-show="matching_room_board.current_matching_room.members.length < matching_room_board.current_matching_room.max_personnel">
+          {{ matching_room_board.current_matching_room.members.length }} / {{ matching_room_board.current_matching_room.max_personnel }}
+        </div>
+        <div class="label gray" style="float: right; margin-top: 10px; margin-bottom: 10px;" ng-show="matching_room_board.current_matching_room.members.length >= matching_room_board.current_matching_room.max_personnel">
+          {{ matching_room_board.current_matching_room.members.length }} / {{ matching_room_board.current_matching_room.max_personnel }}
+        </div>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="ui mini input" style="float: left;">
+          <input id="matching_room_chat_message_input" style="width: 250px;" maxlength="100" placeholder="메세지..." ng-model="message" ng-keydown="send_message($event)">
+        </div>
+        <button class="button blue" style="float: left; margin-left: 10px; margin-top: 2px;" ng-click="send_message()">
+          <i class="fa fa-commenting-o"></i> 보내기
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 50px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="list matching_room_chat_scroll">
+          <div class="matching_room_chat_message" ng-repeat="message in messages">
+            <div class="row">
+              <div class="column_12">
+                <img style="float: left; width: 36px; height: 36px;" ng-src="{{ message.user.portrait }}">
+                <div class="user_battletag" style="float: left; color: #3996D4; margin-top: 9px; margin-left: 10px;" ng-click="show_context_menu($event)">
+                  {{ message.user.battletag }}
+                </div>
+                <div class="text" style="float: left; margin-top: 9px; margin-left: 10px;">
+                  {{ message.message }}
+                </div>
+                <div class="text" style="float: right; margin-top: 9px; margin-right: 10px;">
+                  <i class="fa fa-clock-o" style="color: #3996D4"></i> {{ message.date | date: 'HH:mm' }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

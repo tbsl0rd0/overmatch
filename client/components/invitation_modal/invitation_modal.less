@@ -1,0 +1,36 @@
+.invitation_modal {
+  top: 90px;
+  opacity: 0;
+  z-index: 1;
+  width: 100%;
+  position: fixed;
+  visibility: hidden;
+  transition-duration: 0.3s;
+
+  & > div {
+    opacity: 0.97;
+
+    &:nth-of-type(1) {
+      height: 110px;
+      background-color: #232F47;
+    }
+
+    &:nth-of-type(2) {
+      height: 55px;
+      background-color: #0D1722;
+    }
+  }
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(20px);
+  }
+}
+
+.invitation_modal_text {
+  color: #D0D3DB;
+  font-size: 30px;
+  font-style: italic;
+  font-family: koverwatch;
+}

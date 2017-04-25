@@ -1,0 +1,90 @@
+@top_menu_background_color: #1C1D21;
+
+.top_menu {
+  overflow: hidden;
+  box-shadow: 5px 5px 5px #888888;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: @top_menu_background_color;
+
+  & > a {
+    float: left;
+    margin-top: 9px;
+    margin-left: 20px;
+
+    & > img {
+      height: 27px;
+    }
+  }
+
+  & > div {
+    &:nth-of-type(1) {
+      float: left;
+      margin-left: 20px;
+    }
+
+    &:nth-of-type(2) {
+      float: right;
+      margin-right: 20px;
+    }
+
+    & > div {
+      float: left;
+      border-right-width: 1px;
+      border-right-style: solid;
+      border-right-color: lighten(@top_menu_background_color, 10%);
+
+      &:nth-last-of-type(1) {
+        border-right-width: 0px;
+      }
+
+      & > a {
+        color: #28A1D6;
+        display: block;
+        padding-top: 11px;
+        padding-right: 15px;
+        padding-bottom: 11px;
+        padding-left: 15px;
+        font-size: 17px;
+        font-family: koverwatch;
+      }
+
+      & > div {
+        width: 0px;
+        height: 4px;
+        margin: auto;
+        cursor: pointer;
+        background-color: #2FF7FF;
+      }
+
+      &:hover > div {
+        animation-duration: 0.2s;
+        animation-name: djf3kk23;
+        animation-fill-mode: forwards;
+      }
+
+      &.active {
+        background-color: #3996D4;
+
+        & > a {
+          color: #FFFFFF;
+        }
+
+        & > div {
+          width: 100%;
+          animation-name: none;
+        }
+      }
+    }
+  }
+}
+
+@keyframes djf3kk23 {
+  from {
+    width: 50%;
+  }
+
+  to {
+    width: 100%;
+  }
+}

@@ -1,0 +1,45 @@
+<div class="top_menu">
+  <a href="/">
+    <img src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/top_menu_logo.png">
+  </a>
+  <div>
+    <div ng-click="move_to_public_chat()" ng-class="{ active: top_menu.location == 'public_chat' }">
+      <a>
+        공개채팅
+      </a>
+      <div></div>
+    </div>
+    <div ng-click="move_to_job_search_board()" ng-class="{ active: top_menu.location == 'job_search_board' }">
+      <a>
+        구직란
+      </a>
+      <div></div>
+    </div>
+    <div ng-click="move_to_matching_room_board()" ng-class="{ active: top_menu.location == 'matching_room_board'}">
+      <a>
+        파티매칭
+      </a>
+      <div></div>
+    </div>
+    <div ng-click="move_to_videos_board()" ng-class="{ active: top_menu.location == 'videos_board' }">
+      <a>
+        동영상
+      </a>
+      <div></div>
+    </div>
+  </div>
+  <div>
+    <div style="border-right-width: 0px;" ng-show="!user_state.user">
+      <a href="/battlenet_login">
+        배틀넷으로 로그인
+      </a>
+      <div></div>
+    </div>
+    <div ng-show="user_state.user">
+      <a href="/logout">
+        로그아웃
+      </a>
+      <div></div>
+    </div>
+  </div>
+</div>

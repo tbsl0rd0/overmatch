@@ -1,0 +1,135 @@
+<div class="invitation_modal" ng-class="{ active: active == true }">
+  <div>
+    <div class="container">
+      <div class="row" style="height: 10px;"></div>
+      <div class="row">
+        <div class="column_2"></div>
+        <div class="column_10">
+          <img style="float: left; width: 36px; height: 36px;" ng-src="{{ invited_by.portrait }}">
+          <div class="user_battletag" style="float: left; margin-top: 9px; margin-left: 10px;" ng-click="show_context_menu($event)">
+            {{ invited_by.battletag }}
+          </div>
+          <div class="user_level {{ 'user_level_' + invited_by.level.color }}" style="float: left; margin-top: 10px; margin-left: 5px;">
+            <div>
+              {{ invited_by.level.level }}
+            </div>
+            <div class="{{ 'user_level_star_' + invited_by.level.star_number }}" ng-show="invited_by.level.star_number != 0">
+              <i class="fa fa-star" style="margin-top: 0px;"></i>
+              <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+              <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+              <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+              <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+            </div>
+          </div>
+          <div class="user_rank" style="float: left;">
+            <img ng-src="{{ invited_by.rank.rank_icon }}">
+            <div>
+              {{ invited_by.rank.rank }}
+            </div>
+          </div>
+          <div class="label blue" style="float: left; margin-top: 10px; margin-right: 5px; margin-left: 10px;" ng-show="invited_to.category != 'competitive'">
+            빠대전적
+          </div>
+          <div class="label purple" style="float: left; margin-top: 10px; margin-right: 5px; margin-left: 10px;" ng-show="invited_to.category == 'competitive'">
+            경쟁전적
+          </div>
+          <div class="user_play_stat" style="float: left;" ng-show="invited_to.category != 'competitive'">
+            <img ng-src="{{ invited_by.quick_play[0].hero_icon }}">
+            <div>
+              {{ invited_by.quick_play[0].play_time }}
+            </div>
+          </div>
+          <div class="user_play_stat" style="float: left;" ng-show="invited_to.category != 'competitive'">
+            <img ng-src="{{ invited_by.quick_play[1].hero_icon }}">
+            <div>
+              {{ invited_by.quick_play[1].play_time }}
+            </div>
+          </div>
+          <div class="user_play_stat" style="float: left;" ng-show="invited_to.category != 'competitive'">
+            <img ng-src="{{ invited_by.quick_play[2].hero_icon }}">
+            <div>
+              {{ invited_by.quick_play[2].play_time }}
+            </div>
+          </div>
+          <div class="user_play_stat" style="float: left;" ng-show="invited_to.category == 'competitive'">
+            <img ng-src="{{ invited_by.competitive_play[0].hero_icon }}">
+            <div>
+              {{ invited_by.competitive_play[0].play_time }}
+            </div>
+          </div>
+          <div class="user_play_stat" style="float: left;" ng-show="invited_to.category == 'competitive'">
+            <img ng-src="{{ invited_by.competitive_play[1].hero_icon }}">
+            <div>
+              {{ invited_by.competitive_play[1].play_time }}
+            </div>
+          </div>
+          <div class="user_play_stat" style="float: left;" ng-show="invited_to.category == 'competitive'">
+            <img ng-src="{{ invited_by.competitive_play[2].hero_icon }}">
+            <div>
+              {{ invited_by.competitive_play[2].play_time }}
+            </div>
+          </div>
+          <div class="invitation_modal_text" style="float: left; margin-left: 10px;">
+            님의
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column_3"></div>
+        <div class="column_9">
+          <div class="label blue" style="float: left; margin-top: 10px;" ng-show="invited_to.category == 'quick'">
+            빠대
+          </div>
+          <div class="label purple" style="float: left; margin-top: 10px;" ng-show="invited_to.category == 'competitive'">
+            경쟁
+          </div>
+          <div class="label green" style="float: left; margin-top: 10px;" ng-show="invited_to.category == 'etc'">
+            기타
+          </div>
+          <div class="text" style="float: left; color: #D0D3DB; margin-top: 9px; margin-right: 10px; margin-left: 5px;">
+            {{ invited_to.title }}
+          </div>
+          <div class="label green" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="invited_to.wanted.all == 1">
+            모두구함
+          </div>
+          <div class="label red" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="invited_to.wanted.all == -1 && invited_to.wanted.dealer == 1">
+            <img style="width: 7px; height: 7px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/dealer.svg"> 딜러구함
+          </div>
+          <div class="label blue" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="invited_to.wanted.all == -1 && invited_to.wanted.tanker == 1">
+            <img style="width: 7px; height: 7px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/tanker.svg"> 탱커구함
+          </div>
+          <div class="label yellow" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="invited_to.wanted.all == -1 && invited_to.wanted.healer == 1">
+            <img style="width: 7px; height: 7px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/healer.svg"> 힐러구함
+          </div>
+          <div class="label purple" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="invited_to.mic == true">
+            <i class="fa fa-microphone"></i> 마이크필수
+          </div>
+          <div class="label light_green" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="invited_to.members.length < invited_to.max_personnel">
+            {{ invited_to.members.length }} / {{ invited_to.max_personnel }}
+          </div>
+          <div class="label gray" style="float: left; margin-top: 10px; margin-left: 5px;" ng-show="invited_to.members.length >= invited_to.max_personnel">
+            {{ invited_to.members.length }} / {{ invited_to.max_personnel }}
+          </div>
+          <div class="invitation_modal_text" style="float: left; margin-left: 10px;">
+            그룹에 참가하시겠습니까?
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="column_5"></div>
+        <div class="column_7">
+          <button class="button blue" style="width: 70px; margin-top: 11px;" ng-click="active = false">
+            거절
+          </button>
+          <button class="button orange" style="width: 100px;" ng-click="confirm()">
+            수락
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

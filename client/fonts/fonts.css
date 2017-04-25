@@ -1,0 +1,13 @@
+@font-face {
+  font-family: JejuGothic;
+  src: url("fonts/JejuGothic/JejuGothic.eot");
+  src: url("fonts/JejuGothic/JejuGothic.ttf");
+  src: url("fonts/JejuGothic/JejuGothic.woff");
+}
+
+@font-face {
+  font-family: koverwatch;
+  src: url("fonts/koverwatch/koverwatch.eot");
+  src: url("fonts/koverwatch/koverwatch.ttf");
+  src: url("fonts/koverwatch/koverwatch.woff");
+}

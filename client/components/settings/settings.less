@@ -1,0 +1,65 @@
+.settings {
+  position: relative;
+
+  & > i {
+    top: 1px;
+    color: #E0E0E0;
+    cursor: pointer;
+    position: absolute;
+    transition-duration: 0.5s;
+
+    &:nth-of-type(1) {
+      font-size: 21px;
+    }
+
+    &:nth-of-type(2) {
+      opacity: 0;
+      font-size: 22px;
+      visibility: hidden;
+    }
+  }
+
+  & > div {
+    top: -100px;
+    left: 58px;
+    width: 408px;
+    height: 138px;
+    overflow: hidden;
+    position: absolute;
+
+    & > div {
+      opacity: 0;
+      padding: 10px;
+      width: 380px;
+      height: 110px;
+      border-radius: 5px;
+      visibility: hidden;
+      background-color: #F5F5F5;
+      transition-duration: 0.5s;
+      transform: translateX(200px);
+      box-shadow: 5px 5px 5px #888888;
+    }
+  }
+
+  &.active {
+    & > i {
+      &:nth-of-type(1) {
+        opacity: 0;
+        visibility: hidden;
+        transform: rotateZ(-180deg);
+      }
+
+      &:nth-of-type(2) {
+        opacity: 1;
+        visibility: visible;
+        transform: rotateZ(-180deg);
+      }
+    }
+
+    & > div > div {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0px);
+    }
+  }
+}

@@ -1,0 +1,79 @@
+<alert></alert>
+<div class="container">
+  <div class="row" style="height: 20px"></div>
+  <div class="row">
+    <div class="column_12">
+      <div class="card">
+        <div>
+          <div class="header_1" style="color: #F5F5F5;">
+            관리자 페이지
+          </div>
+        </div>
+        <div>
+          <div class="row" style="height: 50px"></div>
+          <div class="row">
+            <div class="column_12">
+              <div class="header_2">
+                로그인중인 사용자수 - {{ users_number }}
+              </div>
+            </div>
+          </div>
+          <div class="row" style="height: 50px"></div>
+          <div class="row">
+            <div class="column_12">
+              <div class="header_2">
+                공지
+              </div>
+            </div>
+          </div>
+          <div class="row" style="height: 10px"></div>
+          <div class="row">
+            <div class="column_12">
+              <div class="ui input mini" style="float: left;">
+                <input id="admin_notice_input" style="width: 600px;" maxlength="200" placeholder="고정공지..." ng-model="notice">
+              </div>
+              <button class="button blue" style="float: left; margin-left: 10px; margin-top: 2px;" ng-click="add_notice()">
+                추가
+              </button>
+            </div>
+          </div>
+          <div class="row" style="height: 10px"></div>
+          <div class="row">
+            <div class="column_12">
+              <div class="list">
+                <div ng-repeat="notice in notices">
+                  <div class="text" style="float: left; margin-top: 7px;">
+                    {{ notice.notice }}
+                  </div>
+                  <button class="button red" style="float: left; margin-left: 10px;" ng-click="delete_notice(notice._id)">
+                    삭제
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="height: 50px"></div>
+          <div class="row">
+            <div class="column_12">
+              <div class="header_2">
+                공지 방송하기
+              </div>
+            </div>
+          </div>
+          <div class="row" style="height: 10px"></div>
+          <div class="row">
+            <div class="column_12">
+              <div class="ui input mini" style="float: left;">
+                <input id="admin_broadcasting_notice_input" style="width: 600px;" maxlength="200" placeholder="방송공지..." ng-model="broadcasting_notice">
+              </div>
+              <button class="button blue" style="float: left; margin-left: 10px; margin-top: 2px;" ng-click="broadcast_notice()">
+                보내기
+              </button>
+            </div>
+          </div>
+          <div class="row" style="height: 50px"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+.alert {
+  z-index: 1;
+  top: 200px;
+  right: 50px;
+  position: fixed;
+
+  & > div {
+    margin-top: 10px;
+    overflow: hidden;
+
+    & > div {
+      float: left;
+
+      &:nth-of-type(1) {
+        height: 70px;
+        color: #525E79;
+        padding-top: 11px;
+        padding-right: 11px;
+        padding-left: 11px;
+        box-sizing: border-box;
+        background-color: #FFC331;
+      }
+
+      &:nth-of-type(2) {
+        width: 295px;
+        height: 70px;
+        color: #F6F9FB;
+        padding-top: 20px;
+        padding-right: 15px;
+        padding-left: 15px;
+        box-sizing: border-box;
+        font-size: 14px;
+        font-family: JejuGothic;
+        background-color: #525E79;
+      }
+    }
+
+    &.ng-enter {
+      animation-duration: 0.3s;
+      animation-name: kekwjeia;
+    }
+
+    &.ng-leave {
+      animation-duration: 0.3s;
+      animation-name: k321jeia;
+    }
+  }
+}
+
+@keyframes kekwjeia {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+@keyframes k321jeia {
+  to {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}

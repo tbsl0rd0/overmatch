@@ -1,0 +1,9 @@
+change version
+webpack
+gulp
+down ec2
+git
+s3
+init mongodb
+init clowdwatch logs
+up ec2

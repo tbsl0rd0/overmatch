@@ -1,0 +1,114 @@
+<div ng-click="context_menu.hide_context_menu()">
+  <init></init>
+  <alert></alert>
+  <context-menu></context-menu>
+  <invitation-modal></invitation-modal>
+  <div class="container" style="position: relative;">
+    <speech-bubble position="{ top: '60px', left: '635px' }" arrow-position="top_right" title="로그인" content="회원가입 없이 배틀넷 아이디로 로그인 해보세요!" ng-show="!user_state.user"></speech-bubble>
+    <div class="row">
+      <div class="column_12">
+        <div class="overmatch_background">
+          <div class="row">
+            <div class="column_0" style="width: 10px;"></div>
+            <div class="column_0" style="width: 880px;">
+              <top-menu></top-menu>
+            </div>
+          </div>
+          <div class="row" style="height: 10px;"></div>
+          <div class="row" ng-show="user_state.user">
+            <div class="column_0" style="width: 870px;">
+              <div class="text" style="float: right; color: #2C3E50; font-size: 12px;">
+                더이상 배틀넷에 로그인해 있을 필요가 없습니다. <a target="_blank" href="http://battle.net" style="color: #E74C3C;"><i class="fa fa-external-link"></i> 배틀넷 로그아웃 하러가기</a>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="height: 85px;"></div>
+          <div class="row" ng-show="user_state.user">
+            <div class="column_0" style="width: 10px;"></div>
+            <div class="column_6">
+              <user-state></user-state>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="height: 10px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <notice></notice>
+      </div>
+    </div>
+    <div class="row" style="height: 30px;"></div>
+    <div class="row wzhzmxq9" ng-show="top_menu.location == 'public_chat'">
+      <div class="column_8">
+        <public-chat></public-chat>
+      </div>
+    </div>
+    <div class="row wzhzmxq9" ng-show="top_menu.location == 'job_search_board'">
+      <div class="column_0" style="width: 510px;">
+        <job-search-board></job-search-board>
+      </div>
+      <div class="column_0" style="width: 10px;"></div>
+      <div class="column_0" style="width: 380px;">
+        <div class="row">
+          <div class="column_12">
+            <job-search-post-editing-form></job-search-post-editing-form>
+          </div>
+        </div>
+        <div class="row" style="height: 30px;"></div>
+        <div class="row">
+          <div class="column_1"></div>
+          <div class="column_10">
+            <img src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/hanjo.png" style="width: 316px;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row wzhzmxq9" ng-show="top_menu.location == 'matching_room_board' && matching_room_board.location == 'matching_room_board'">
+      <div class="column_9">
+        <matching-room-board></matching-room-board>
+      </div>
+    </div>
+    <div class="row wzhzmxq9" ng-show="top_menu.location == 'matching_room_board' && matching_room_board.location == 'matching_room_creating_form'">
+      <div class="column_6">
+        <matching-room-creating-form></matching-room-creating-form>
+      </div>
+    </div>
+    <div class="row wzhzmxq9" ng-show="top_menu.location == 'matching_room_board' && matching_room_board.location == 'matching_room'">
+      <div class="column_6">
+        <matching-room-chat></matching-room-chat>
+      </div>
+      <div class="column_0" style="width: 10px;"></div>
+      <div class="column_0" style="width: 440px;">
+        <div class="row wzhzmxq9" ng-show="user_state.user.battletag == matching_room_board.current_matching_room.owner.battletag">
+          <div class="column_12">
+            <matching-room-editing-form></matching-room-editing-form>
+          </div>
+        </div>
+        <div class="row" style="height: 10px;" ng-show="user_state.user.battletag == matching_room_board.current_matching_room.owner.battletag"></div>
+        <div class="row">
+          <div class="column_12">
+            <matching-room-member-list></matching-room-member-list>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row wzhzmxq9" ng-show="top_menu.location == 'videos_board' && videos_board.location == 'videos_board'">
+      <div class="column_12">
+        <videos-board><videos-board>
+      </div>
+    </div>
+    <div class="row wzhzmxq9" ng-show="top_menu.location == 'videos_board' && videos_board.location == 'video_post_writing_form'">
+      <div class="column_6">
+        <video-post-writing-form></video-post-writing-form>
+      </div>
+    </div>
+    <div class="row" style="height: 40px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <footer></footer>
+      </div>
+    </div>
+    <div class="row" style="height: 80px;"></div>
+  </div>
+</div>

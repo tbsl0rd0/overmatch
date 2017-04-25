@@ -1,0 +1,38 @@
+#!/bin/bash
+
+cd /home/ec2-user
+
+wget https://nodejs.org/dist/v6.9.4/node-v6.9.4-linux-x64.tar.xz
+tar xf node-v6.9.4-linux-x64.tar.xz
+rm node-v6.9.4-linux-x64.tar.xz
+mv node-v6.9.4-linux-x64 node
+
+export PATH=$PATH:/home/ec2-user/node/bin
+export NODE_ENV=production
+
+yum update -y
+
+yum install -y git
+yum install -y awslogs
+
+npm install -g forever
+
+iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 3000
+service iptables save
+
+git clone https://github.com/tbsl0rd0/overmatch.git
+cd overmatch
+npm install
+
+forever start bin/www
+
+sed -i 4s/.*/'region = ap-northeast-2'/ /etc/awslogs/awscli.conf
+
+sed -i 121,127d /etc/awslogs/awslogs.conf
+
+echo [forever_logs] >> /etc/awslogs/awslogs.conf
+echo log_group_name = overmatch >> /etc/awslogs/awslogs.conf
+echo log_stream_name = forever_logs >> /etc/awslogs/awslogs.conf
+echo file = /root/.forever/*.log >> /etc/awslogs/awslogs.conf
+
+service awslogs start

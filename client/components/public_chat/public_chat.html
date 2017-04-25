@@ -1,0 +1,60 @@
+<div class="card">
+  <div>
+    <div class="header_1" style="color: #F5F5F5;">
+      공개채팅
+    </div>
+  </div>
+  <div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="ui input mini" style="float: left;">
+          <input id="public_chat_message_input" style="width: 300px;" maxlength="100" placeholder="메세지..." ng-model="message" ng-keydown="send_message($event)">
+        </div>
+        <button class="button blue" style="float: left; margin-top: 2px; margin-left: 10px;" ng-click="send_message()">
+          <i class="fa fa-commenting-o"></i> 보내기
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 50px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="list public_chat_scroll">
+          <div class="public_chat_message" ng-repeat="message in messages">
+            <img style="float: left; width: 36px; height: 36px;" ng-src="{{ message.user.portrait }}">
+            <div class="user_battletag" style="float: left; color: #3996D4; margin-top: 9px; margin-left: 10px;" ng-show="message.is_anonymous == false" ng-click="show_context_menu($event, message.is_anonymous)">
+              {{ message.user.battletag }}
+            </div>
+            <div class="user_battletag" style="float: left; cursor: auto; color: #3996D4; margin-top: 9px; margin-left: 10px;" ng-show="message.is_anonymous == true">
+              {{ message.user.anonymous_battletag }}
+            </div>
+            <div class="user_level {{ 'user_level_' + message.user.level.color }}" style="float: left; margin-top: 10px; margin-left: 5px;">
+              <div>
+                {{ message.user.level.level }}
+              </div>
+              <div class="{{ 'user_level_star_' + message.user.level.star_number }}" ng-show="message.user.level.star_number != 0">
+                <i class="fa fa-star" style="margin-top: 0px;"></i>
+                <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+                <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+                <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+                <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+              </div>
+            </div>
+            <div class="user_rank" style="float: left;">
+              <img ng-src="{{ message.user.rank.rank_icon }}">
+              <div style="color: #000000;">
+                {{ message.user.rank.rank }}
+              </div>
+            </div>
+            <div class="text" style="float: left; margin-top: 9px; margin-left: 10px;">
+              {{ message.message }}
+            </div>
+            <div class="text" style="float: right; margin-top: 9px; margin-right: 10px;">
+              <i class="fa fa-clock-o" style="color: #3996D4"></i> {{ message.date | date: 'HH:mm' }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

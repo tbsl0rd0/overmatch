@@ -1,0 +1,71 @@
+<div class="user_state">
+  <img style="float: left; width: 36px; height: 36px;" ng-src="{{ user_state.user.portrait }}">
+  <div class="user_battletag" style="float: left; margin-top: 9px; margin-left: 10px;" ng-show="settings.is_anonymous == -1" ng-click="show_context_menu($event)">
+    {{ user_state.user.battletag }}
+  </div>
+  <div class="user_battletag" style="float: left; cursor: auto; margin-top: 9px; margin-left: 10px;" ng-show="settings.is_anonymous == 1">
+    {{ user_state.user.anonymous_battletag }}
+  </div>
+  <div class="user_level {{ 'user_level_' + user_state.user.level.color }}" style="float: left; margin-top: 10px; margin-left: 5px;">
+    <div>
+      {{ user_state.user.level.level }}
+    </div>
+    <div class="{{ 'user_level_star_' + user_state.user.level.star_number }}" ng-show="user_state.user.level.star_number != 0">
+      <i class="fa fa-star" style="margin-top: 0px;"></i>
+      <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+      <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+      <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+      <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+    </div>
+  </div>
+  <div class="user_rank" style="float: left;">
+    <img ng-src="{{ user_state.user.rank.rank_icon }}">
+    <div>
+      {{ user_state.user.rank.rank }}
+    </div>
+  </div>
+  <div class="label blue" style="float: left; margin-top: 10px; margin-right: 5px; margin-left: 10px;" ng-show="settings.stat_by == 'quick_play'">
+    빠대전적
+  </div>
+  <div class="label purple" style="float: left; margin-top: 10px; margin-right: 5px; margin-left: 10px;" ng-show="settings.stat_by == 'competitive_play'">
+    경쟁전적
+  </div>
+  <div class="user_play_stat" style="float: left;" ng-show="settings.stat_by == 'quick_play'">
+    <img ng-src="{{ user_state.user.quick_play[0].hero_icon }}">
+    <div>
+      {{ user_state.user.quick_play[0].play_time }}
+    </div>
+  </div>
+  <div class="user_play_stat" style="float: left;" ng-show="settings.stat_by == 'quick_play'">
+    <img ng-src="{{ user_state.user.quick_play[1].hero_icon }}">
+    <div>
+      {{ user_state.user.quick_play[1].play_time }}
+    </div>
+  </div>
+  <div class="user_play_stat" style="float: left;" ng-show="settings.stat_by == 'quick_play'">
+    <img ng-src="{{ user_state.user.quick_play[2].hero_icon }}">
+    <div>
+      {{ user_state.user.quick_play[2].play_time }}
+    </div>
+  </div>
+  <div class="user_play_stat" style="float: left;" ng-show="settings.stat_by == 'competitive_play'">
+    <img ng-src="{{ user_state.user.competitive_play[0].hero_icon }}">
+    <div>
+      {{ user_state.user.competitive_play[0].play_time }}
+    </div>
+  </div>
+  <div class="user_play_stat" style="float: left;" ng-show="settings.stat_by == 'competitive_play'">
+    <img ng-src="{{ user_state.user.competitive_play[1].hero_icon }}">
+    <div>
+      {{ user_state.user.competitive_play[1].play_time }}
+    </div>
+  </div>
+  <div class="user_play_stat" style="float: left;" ng-show="settings.stat_by == 'competitive_play'">
+    <img ng-src="{{ user_state.user.competitive_play[2].hero_icon }}">
+    <div>
+      {{ user_state.user.competitive_play[2].play_time }}
+    </div>
+  </div>
+  <settings style="float: right; margin-top: 6px; margin-right: 28px;"></settings>
+  <div style="clear: left;"></div>
+</div>

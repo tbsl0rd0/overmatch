@@ -1,0 +1,10 @@
+<div class="context_menu" ng-click="jdfellaf()" ng-style="{ 'top': y, 'left': x }" ng-class="{ active: active == true }">
+  <div>
+    {{ battletag }}
+  </div>
+  <div>
+    <div ng-repeat="item in items" ng-click="execute(item)">
+      {{ item }}
+    </div>
+  </div>
+</div>

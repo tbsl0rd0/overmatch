@@ -1,0 +1,81 @@
+<div class="card">
+  <div>
+    <div class="header_2" style="color: #F5F5F5;">
+      구직신청
+    </div>
+  </div>
+  <div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="ui input mini">
+          <input id="job_search_post_writing_form_comment_input" style="width: 250px;" maxlength="100" placeholder="코멘트..." ng-model="comment">
+        </div>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="text">
+          타입
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column_12">
+        <button class="button" ng-init="type.quick = -1" ng-class="{ 'blue': type.quick == 1 }" ng-click="type.quick = type.quick * -1">
+          빠른대전
+        </button>
+        <button class="button" ng-init="type.competitive = 1" ng-class="{ 'purple': type.competitive == 1 }" ng-click="type.competitive = type.competitive * -1">
+          경쟁전
+        </button>
+        <button class="button" ng-init="type.etc = -1" ng-class="{ 'green': type.etc == 1 }" ng-click="type.etc = type.etc * -1">
+          기타
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="text">
+          포지션
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column_12">
+        <button class="button" ng-init="position.dealer = -1" ng-click="position.dealer = position.dealer * -1" ng-class="{ 'red': position.dealer == 1 }">
+          <img style="width: 9px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/dealer.svg"> 딜러가능
+        </button>
+        <button class="button" ng-init="position.tanker = -1" ng-click="position.tanker = position.tanker * -1" ng-class="{ 'blue': position.tanker == 1 }">
+          <img style="width: 9px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/tanker.svg"> 탱커가능
+        </button>
+        <button class="button" ng-init="position.healer = -1" ng-click="position.healer = position.healer * -1" ng-class="{ 'yellow': position.healer == 1 }">
+          <img style="width: 9px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/healer.svg"> 힐러가능
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="checkbox">
+          <input type="checkbox" ng-init="mic = -1" ng-checked="mic == 1" ng-click="mic = mic * -1">
+          <div ng-click="mic = mic * -1">
+            <i class="fa fa-microphone"></i> 마이크가능
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <button class="button blue" style="float: right; margin-right: 15px;" ng-click="write()">
+          구직신청
+        </button>
+        <button class="button red" style="float: right; margin-right: 5px;" ng-click="delete()">
+          <i class="fa fa-times"></i> 내 포스트 삭제하기
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

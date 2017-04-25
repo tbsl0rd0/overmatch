@@ -1,0 +1,76 @@
+<div class="card">
+  <div>
+    <div class="header_2" style="color: #F5F5F5;">
+      정보수정
+    </div>
+  </div>
+  <div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="ui mini input">
+          <input id="matching_room_editing_form_title_input" style="width: 250px;" maxlength="50" placeholder="방제..." ng-model="title">
+        </div>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="ui input mini">
+          <input style="width: 70px;" maxlength="2" placeholder="인원 2 ~ 12" ng-model="max_personnel">
+        </div>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <button class="button" ng-click="category = 'quick'" ng-class="{ 'blue': category == 'quick' }">
+          빠른대전
+        </button>
+        <button class="button" ng-init="category = 'competitive'" ng-click="category = 'competitive'" ng-class="{ 'purple': category == 'competitive' }">
+          경쟁전
+        </button>
+        <button class="button" ng-click="category = 'etc'" ng-class="{ 'green': category == 'etc' }">
+          기타
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_0" style="width: 5px;"></div>
+      <div class="column_11">
+        <div class="checkbox">
+          <input type="checkbox" ng-init="mic = -1" ng-checked="mic == 1" ng-click="mic = mic * -1">
+          <div ng-click="mic = mic * -1">
+            <i class="fa fa-microphone"></i> 마이크필수
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <button class="button" ng-click="wanted.dealer = 1; wanted.tanker = 1; wanted.healer = 1" ng-class="{ 'green': wanted.dealer == 1 && wanted.tanker == 1 && wanted.healer == 1 }">
+          모두구함
+        </button>
+        <button class="button" ng-init="wanted.dealer = -1" ng-click="wanted.dealer = wanted.dealer * -1" ng-class="{ 'red': wanted.dealer == 1 }">
+          <img style="width: 9px; height: 9px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/dealer.svg"> 딜러구함
+        </button>
+        <button class="button" ng-init="wanted.tanker = -1" ng-click="wanted.tanker = wanted.tanker * -1" ng-class="{ 'blue': wanted.tanker == 1 }">
+          <img style="width: 9px; height: 9px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/tanker.svg"> 탱커구함
+        </button>
+        <button class="button" ng-init="wanted.healer = -1" ng-click="wanted.healer = wanted.healer * -1" ng-class="{ 'yellow': wanted.healer == 1 }">
+          <img style="width: 9px; height: 9px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/healer.svg"> 힐러구함
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <button class="button blue" style="float: right; margin-right: 15px;" ng-click="edit()">
+          적용
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

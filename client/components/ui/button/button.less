@@ -1,0 +1,133 @@
+@button_background_color_red: #E74C3C;
+@button_background_color_blue: #3996D4;
+@button_background_color_green: #2C5E2E;
+@button_background_color_white: #FFFFFF;
+@button_background_color_orange: #BB8539;
+@button_background_color_purple: #7B52AB;
+@button_background_color_yellow: #FFC861;
+@button_background_color_default: #F5F5F5;
+
+.button {
+  height: 30px;
+  color: #BBBBBB;
+  cursor: pointer;
+  font-size: 12px;
+  padding-right: 13px;
+  padding-left: 13px;
+  border-width: 1px;
+  border-radius: 3px;
+  border-style: solid;
+  font-family: JejuGothic;
+  background-color: @button_background_color_default;
+  border-color: darken(@button_background_color_default, 10%);
+
+  &:hover {
+    background-color: darken(@button_background_color_default, 10%);
+  }
+
+  &:active {
+    background-color: darken(@button_background_color_default, 20%);
+  }
+
+  &.red {
+    color: #F5F5F5;
+    background-color: @button_background_color_red;
+    border-color: darken(@button_background_color_red, 10%);
+
+    &:hover {
+      background-color: darken(@button_background_color_red, 10%);
+    }
+
+    &:active {
+      background-color: darken(@button_background_color_red, 20%);
+    }
+  }
+
+  &.blue {
+    color: #F5F5F5;
+    background-color: @button_background_color_blue;
+    border-color: darken(@button_background_color_blue, 10%);
+
+    &:hover {
+      background-color: darken(@button_background_color_blue, 10%);
+    }
+
+    &:active {
+      background-color: darken(@button_background_color_blue, 20%);
+    }
+  }
+
+  &.green {
+    color: #F5F5F5;
+    background-color: @button_background_color_green;
+    border-color: darken(@button_background_color_green, 10%);
+
+    &:hover {
+      background-color: darken(@button_background_color_green, 10%);
+    }
+
+    &:active {
+      background-color: darken(@button_background_color_green, 20%);
+    }
+  }
+
+  &.white {
+    color: #000000;
+    background-color: @button_background_color_white;
+    border-color: darken(@button_background_color_white, 10%);
+
+    &:hover {
+      background-color: darken(@button_background_color_white, 10%);
+    }
+
+    &:active {
+      background-color: darken(@button_background_color_white, 20%);
+    }
+  }
+
+  &.orange {
+    color: #F5F5F5;
+    background-color: @button_background_color_orange;
+    border-color: darken(@button_background_color_orange, 10%);
+
+    &:hover {
+      background-color: darken(@button_background_color_orange, 10%);
+    }
+
+    &:active {
+      background-color: darken(@button_background_color_orange, 20%);
+    }
+  }
+
+  &.purple {
+    color: #F5F5F5;
+    background-color: @button_background_color_purple;
+    border-color: darken(@button_background_color_purple, 10%);
+
+    &:hover {
+      background-color: darken(@button_background_color_purple, 10%);
+    }
+
+    &:active {
+      background-color: darken(@button_background_color_purple, 20%);
+    }
+  }
+
+  &.yellow {
+    color: #F5F5F5;
+    background-color: @button_background_color_yellow;
+    border-color: darken(@button_background_color_yellow, 10%);
+
+    &:hover {
+      background-color: darken(@button_background_color_yellow, 10%);
+    }
+
+    &:active {
+      background-color: darken(@button_background_color_yellow, 20%);
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

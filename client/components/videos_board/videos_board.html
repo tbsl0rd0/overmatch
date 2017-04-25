@@ -1,0 +1,87 @@
+<div class="card">
+  <div>
+    <div class="row">
+      <div class="column_12">
+        <div class="header_1" style="color: #F5F5F5;">
+          동영상
+        </div>
+      </div>
+    </div>
+    <div class="row" style="height: 10px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="text" style="color: #C0C0C0;">
+          <span style="color: #FF9800;">10분</span> 간격으로 새로운 동영상을 볼 수 있습니다
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_11">
+        <button class="button blue" style="float: right;" ng-click="videos_board.location = 'video_post_writing_form'">
+          동영상 등록
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 10px;"></div>
+    <div class="row">
+      <div class="column_11">
+        <button class="button white" style="float: right;" ng-click="videos_board.get_video_posts(order, page + 1)">
+          다음 <i class="fa fa-play"></i>
+        </button>
+        <div class="videos_board_page" style="float: right; margin-top: 7px;">
+          {{ page }}
+        </div>
+        <button class="button white" style="float: right;" ng-click="videos_board.get_video_posts(order, page - 1)">
+          <i class="fa fa-play fa-rotate-180"></i> 이전
+        </button>
+        <button class="button white" style="float: right; margin-right: 15px;" ng-click="videos_board.get_video_posts(order, 1)">
+          <i class="fa fa-backward"></i> 처음으로
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 10px;"></div>
+    <div class="row">
+      <div class="column_1"></div>
+      <div class="column_10">
+        <button class="button" ng-init="order = 'recent'" ng-class="{ 'blue': order == 'recent' }" ng-click="order = 'recent'; videos_board.get_video_posts(order, 1)">
+          최근순
+        </button>
+        <button class="button" ng-class="{ 'blue': order == 'best' }" ng-click="order = 'best'; videos_board.get_video_posts(order, 1)">
+          베스트
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 10px;"></div>
+    <div class="row">
+      <div class="column_1"></div>
+      <div class="column_10">
+        <div class="list">
+          <div ng-repeat="video_post in video_posts">
+            <video-post video-post="video_post"></video-post>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="height: 10px;"></div>
+    <div class="row">
+      <div class="column_11">
+        <button class="button white" style="float: right;" ng-click="videos_board.get_video_posts(order, page + 1)">
+          다음 <i class="fa fa-play"></i>
+        </button>
+        <div class="videos_board_page" style="float: right; margin-top: 7px;">
+          {{ page }}
+        </div>
+        <button class="button white" style="float: right;" ng-click="videos_board.get_video_posts(order, page - 1)">
+          <i class="fa fa-play fa-rotate-180"></i> 이전
+        </button>
+        <button class="button white" style="float: right; margin-right: 15px;" ng-click="videos_board.get_video_posts(order, 1)">
+          <i class="fa fa-backward"></i> 처음으로
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+  </div>
+</div>

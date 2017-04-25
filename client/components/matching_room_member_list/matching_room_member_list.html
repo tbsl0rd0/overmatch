@@ -1,0 +1,92 @@
+<div class="card">
+  <div>
+    <div class="row">
+      <div class="column_12">
+        <div class="header_2" style="float: left; color: #F5F5F5;">
+          참가자 목록
+        </div>
+        <div class="text" style="float: left; color: #F5F5F5; margin-top: 2px; margin-left: 10px; font-size: 16px;">
+          ( {{ matching_room_board.current_matching_room.members.length }} / {{ matching_room_board.current_matching_room.max_personnel }} )
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="list">
+          <div class="current_matching_room_member" ng-repeat="member in matching_room_board.current_matching_room.members">
+            <img style="float: left; width: 36px; height: 36px;" ng-src="{{ member.portrait }}">
+            <div class="user_battletag" style="float: left; color: #3996D4; margin-top: 9px; margin-left: 10px;" ng-click="show_context_menu($event)">
+              {{ member.battletag }}
+            </div>
+            <div class="user_level {{ 'user_level_' + member.level.color }}" style="float: left; margin-top: 10px; margin-left: 5px;">
+              <div>
+                {{ member.level.level }}
+              </div>
+              <div class="{{ 'user_level_star_' + member.level.star_number }}" ng-show="member.level.star_number != 0">
+                <i class="fa fa-star" style="margin-top: 0px;"></i>
+                <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+                <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+                <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+                <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+              </div>
+            </div>
+            <div class="user_rank" style="float: left;">
+              <img ng-src="{{ member.rank.rank_icon }}">
+              <div style="color: #000000;">
+                {{ member.rank.rank }}
+              </div>
+            </div>
+            <div class="label blue" style="float: left; margin-top: 10px; margin-right: 5px; margin-left: 10px;" ng-show="matching_room_board.current_matching_room.category != 'competitive'">
+              빠대전적
+            </div>
+            <div class="label purple" style="float: left; margin-top: 10px; margin-right: 5px; margin-left: 10px;" ng-show="matching_room_board.current_matching_room.category == 'competitive'">
+              경쟁전적
+            </div>
+            <div class="user_play_stat" style="float: left;" ng-show="matching_room_board.current_matching_room.category != 'competitive'">
+              <img ng-src="{{ member.quick_play[0].hero_icon }}">
+              <div style="color: #000000;">
+                {{ member.quick_play[0].play_time }}
+              </div>
+            </div>
+            <div class="user_play_stat" style="float: left;" ng-show="matching_room_board.current_matching_room.category != 'competitive'">
+              <img ng-src="{{ member.quick_play[1].hero_icon }}">
+              <div style="color: #000000;">
+                {{ member.quick_play[1].play_time }}
+              </div>
+            </div>
+            <div class="user_play_stat" style="float: left;" ng-show="matching_room_board.current_matching_room.category != 'competitive'">
+              <img ng-src="{{ member.quick_play[2].hero_icon }}">
+              <div style="color: #000000;">
+                {{ member.quick_play[2].play_time }}
+              </div>
+            </div>
+            <div class="user_play_stat" style="float: left;" ng-show="matching_room_board.current_matching_room.category == 'competitive'">
+              <img ng-src="{{ member.competitive_play[0].hero_icon }}">
+              <div style="color: #000000;">
+                {{ member.competitive_play[0].play_time }}
+              </div>
+            </div>
+            <div class="user_play_stat" style="float: left;" ng-show="matching_room_board.current_matching_room.category == 'competitive'">
+              <img ng-src="{{ member.competitive_play[1].hero_icon }}">
+              <div style="color: #000000;">
+                {{ member.competitive_play[1].play_time }}
+              </div>
+            </div>
+            <div class="user_play_stat" style="float: left;" ng-show="matching_room_board.current_matching_room.category == 'competitive'">
+              <img ng-src="{{ member.competitive_play[2].hero_icon }}">
+              <div style="color: #000000;">
+                {{ member.competitive_play[2].play_time }}
+              </div>
+            </div>
+            <div class="label red" style="float: left; margin-top: 10px; margin-left: 10px;" ng-show="member.battletag == matching_room_board.current_matching_room.owner.battletag">
+              방장
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,149 @@
+<div>
+  <div class="row">
+    <div class="column_0" style="width: 60px;">
+      <div class="row">
+        <div class="column_12">
+          <button class="button white" style="width: 100%; color: #3996D4;" ng-click="update_points($ctrl.videoPost, 'plus')">
+            +1
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column_12">
+          <div class="video_post_points" style="margin-top: 2px; margin-bottom: 2px;">
+            {{ $ctrl.videoPost.points }}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column_12">
+          <button class="button white" style="width: 100%; color: #E74C3C;" ng-click="update_points($ctrl.videoPost, 'minus')">
+            -1
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="column_0" style="width: 10px;"></div>
+    <div class="column_0" style="width: 130px;">
+      <div class="video_post_preview" ng-init="video_state = -1" ng-click="activate_video($ctrl.videoPost._id, $ctrl.videoPost.type, $ctrl.videoPost.video_id)">
+        <img ng-src="{{ $ctrl.videoPost.preview_url }}">
+        <div class="label red" style="top: 0px; position: absolute;" ng-show="$ctrl.videoPost.type == 'youtube'">
+          YouTube
+        </div>
+        <div>
+          <i class="fa fa-play"></i>
+        </div>
+      </div>
+    </div>
+    <div class="column_0" style="width: 10px;"></div>
+    <div class="column_0" style="width: 521px;">
+      <div class="row">
+        <div class="column_12">
+          <div class="label light_green" style="float: left; margin-top: 2px;" ng-show="$ctrl.videoPost.category == 'overwatch'">
+            오버워치
+          </div>
+          <div class="label green" style="float: left; margin-top: 2px;" ng-show="$ctrl.videoPost.category == 'game'">
+            게임
+          </div>
+          <div class="label red" style="float: left; margin-top: 2px;" ng-show="$ctrl.videoPost.category == 'celebrity'">
+            연예
+          </div>
+          <div class="label yellow" style="float: left; margin-top: 2px;" ng-show="$ctrl.videoPost.category == 'music'">
+            음악
+          </div>
+          <div class="label gray" style="float: left; margin-top: 2px;" ng-show="$ctrl.videoPost.category == 'etc'">
+            기타
+          </div>
+          <div class="text" style="float: left; font-size: 16px; margin-left: 5px;">
+            {{ $ctrl.videoPost.title }}
+          </div>
+          <div class="label light_green" style="float: left; margin-top: 2px; margin-left: 5px;" ng-show="$ctrl.videoPost.emotions.humorous == true">
+            유머
+          </div>
+          <div class="label red" style="float: left; margin-top: 2px; margin-left: 5px;" ng-show="$ctrl.videoPost.emotions.angry == true">
+            분노
+          </div>
+          <div class="label blue" style="float: left; margin-top: 2px; margin-left: 5px;" ng-show="$ctrl.videoPost.emotions.sad == true">
+            슬픔
+          </div>
+          <div class="label green" style="float: left; margin-top: 2px; margin-left: 5px;" ng-show="$ctrl.videoPost.emotions.exciting == true">
+            신남
+          </div>
+          <div class="label red" style="float: left; margin-top: 2px; margin-left: 5px;" ng-show="$ctrl.videoPost.emotions.lovely == true">
+            사랑
+          </div>
+          <div class="label green" style="float: left; margin-top: 2px; margin-left: 5px;" ng-show="$ctrl.videoPost.emotions.touching == true">
+            감동
+          </div>
+          <div class="label gray" style="float: left; margin-top: 2px; margin-left: 5px;" ng-show="$ctrl.videoPost.emotions.academic == true">
+            유익
+          </div>
+        </div>
+      </div>
+      <div class="row" style="height: 5px;"></div>
+      <div class="row">
+        <div class="column_12">
+          <div class="user_battletag" style="float: left; color: #3996D4;" ng-click="show_context_menu($event)" ng-show="$ctrl.videoPost.is_anonymous == false">
+            {{ $ctrl.videoPost.user.battletag }}
+          </div>
+          <div class="user_battletag" style="float: left; cursor: auto; color: #3996D4;" ng-show="$ctrl.videoPost.is_anonymous == true">
+            {{ $ctrl.videoPost.user.anonymous_battletag }}
+          </div>
+          <div class="text" style="float: left; color: #777777; margin-left: 10px;">
+            {{ $ctrl.videoPost.date | date: 'yyyy-MM-dd' }}&nbsp;&nbsp;<i class="fa fa-clock-o" style="color: #3996D4"></i> {{ $ctrl.videoPost.date | date: 'HH:mm' }}
+          </div>
+        </div>
+      </div>
+      <div class="row" style="height: 5px;"></div>
+      <div class="row">
+        <div class="column_2">
+          <button class="button" ng-init="reply_state = -1" ng-class="{ 'blue': reply_state == -1 }" ng-click="reply_state = reply_state * -1">
+            댓글 {{ $ctrl.videoPost.replies.length }}
+          </button>
+        </div>
+        <div class="column_10">
+          <div class="label purple" style="float: left; margin-top: 7px;" ng-show="$ctrl.videoPost.best_reply">
+            베스트댓글
+          </div>
+          <div class="user_battletag" style="float: left; color: #3996D4; margin-top: 6px; margin-left: 10px;" ng-click="show_context_menu($event)" ng-show="$ctrl.videoPost.best_reply && $ctrl.videoPost.best_reply.is_anonymous == false">
+            {{ $ctrl.videoPost.best_reply.user.battletag }}
+          </div>
+          <div class="user_battletag" style="float: left; cursor: auto; color: #3996D4; margin-top: 6px; margin-left: 10px;" ng-click="show_context_menu($event)" ng-show="$ctrl.videoPost.best_reply && $ctrl.videoPost.best_reply.is_anonymous == true">
+            {{ $ctrl.videoPost.best_reply.user.anonymous_battletag }}
+          </div>
+          <div class="text" style="float: left; margin-top: 9px; margin-left: 5px; font-size: 13px;" ng-show="$ctrl.videoPost.best_reply">
+            {{ $ctrl.videoPost.best_reply.reply }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="height: 10px;" ng-show="video_state == 1"></div>
+  <div class="row" ng-show="video_state == 1">
+    <div class="column_12">
+      <iframe id="{{ 'video_' + $ctrl.videoPost._id }}" style="width: 732px; height: 412px;" autoplay allowfullscreen frameborder="0"></iframe>
+    </div>
+  </div>
+  <div class="row" style="height: 10px;" ng-show="video_state == 1 && reply_state == -1"></div>
+  <div class="row" style="height: 10px;" ng-show="reply_state == 1"></div>
+  <div class="row" ng-show="reply_state == 1">
+    <div class="column_12">
+      <button class="button blue" style="float: right; margin-top: 2px;" ng-click="write_reply($ctrl.videoPost._id)">
+        <i class="fa fa-reply fa-rotate-180"></i> 댓글쓰기
+      </button>
+      <div class="ui input mini" style="float: right; margin-right: 10px;">
+        <input id="{{ 'video_post_writing_reply_input_' + $ctrl.videoPost._id}}" style="width: 250px;" maxlength="100" placeholder="댓글...">
+      </div>
+    </div>
+  </div>
+  <div class="row" ng-show="reply_state == 1">
+    <div class="column_12">
+      <div class="video_post_reply_scroll">
+        <div class="efycl97s" ng-repeat="reply in $ctrl.videoPost.replies">
+          <video-post-reply video-post-id="$ctrl.videoPost._id" video-post-reply="reply"></video-post-reply>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="height: 10px;" ng-show="reply_state == 1"></div>
+</div>

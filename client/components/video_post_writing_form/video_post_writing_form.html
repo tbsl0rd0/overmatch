@@ -1,0 +1,102 @@
+<div class="card">
+  <div>
+    <div class="header_1" style="color: #F5F5F5;">
+      동영상 등록
+    </div>
+  </div>
+  <div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <button class="button red" style="float: right; margin-right: 15px;" ng-click="videos_board.location = 'videos_board'">
+          <i class="fa fa-times"></i> 취소
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="ui input mini">
+          <input id="video_post_writing_form_title_input" style="width: 250px;" maxlength="50" placeholder="제목..." ng-model="title">
+        </div>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="ui input mini">
+          <input id="video_post_writing_form_url_input" style="width: 250px;" maxlength="500" placeholder="URL 또는 Script..." ng-model="url">
+        </div>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="text">
+          분류
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column_12">
+        <button class="button" ng-init="category = 'overwatch'" ng-click="category = 'overwatch'" ng-class="{ 'blue': category == 'overwatch' }">
+          오버워치
+        </button>
+        <button class="button" ng-click="category = 'game'" ng-class="{ 'blue': category == 'game' }">
+          게임
+        </button>
+        <button class="button" ng-click="category = 'celebrity'" ng-class="{ 'blue': category == 'celebrity' }">
+          연예
+        </button>
+        <button class="button" ng-click="category = 'music'" ng-class="{ 'blue': category == 'music' }">
+          음악
+        </button>
+        <button class="button" ng-click="category = 'etc'" ng-class="{ 'blue': category == 'etc' }">
+          기타
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <div class="text">
+          감정
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column_12">
+        <button class="button" ng-click="emotions.humorous = emotions.humorous * -1" ng-class="{ 'blue': emotions.humorous == 1 }">
+          유머
+        </button>
+        <button class="button" ng-click="emotions.angry = emotions.angry * -1" ng-class="{ 'blue': emotions.angry == 1 }">
+          분노
+        </button>
+        <button class="button" ng-click="emotions.sad = emotions.sad * -1" ng-class="{ 'blue': emotions.sad == 1 }">
+          슬픔
+        </button>
+        <button class="button" ng-click="emotions.exciting = emotions.exciting * -1" ng-class="{ 'blue': emotions.exciting == 1 }">
+          신남
+        </button>
+        <button class="button" ng-click="emotions.lovely = emotions.lovely * -1" ng-class="{ 'blue': emotions.lovely == 1 }">
+          사랑
+        </button>
+        <button class="button" ng-click="emotions.touching = emotions.touching * -1" ng-class="{ 'blue': emotions.touching == 1 }">
+          감동
+        </button>
+        <button class="button" ng-click="emotions.academic = emotions.academic * -1" ng-class="{ 'blue': emotions.academic == 1 }">
+          유익
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+    <div class="row">
+      <div class="column_12">
+        <button class="button blue" style="float: right; margin-right: 15px;" ng-click="write()">
+          등록
+        </button>
+      </div>
+    </div>
+    <div class="row" style="height: 20px;"></div>
+  </div>
+</div>

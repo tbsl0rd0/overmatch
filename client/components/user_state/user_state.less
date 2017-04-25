@@ -1,0 +1,119 @@
+@user_level_brown: #A35435;
+@user_level_silver: #9CAABD;
+@user_level_gold: #F2A900;
+
+.user_state {
+  background-color: #263248;
+}
+
+.user_battletag {
+  color: #F5F5F5;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: koverwatch;
+}
+
+.user_level {
+  & > div {
+    &:nth-of-type(1) {
+      float: left;
+      color: #F9F9F9;
+      padding-top: 1px;
+      padding-right: 4px;
+      padding-bottom: 1px;
+      padding-left: 4px;
+      font-size: 11px;
+      font-family: JejuGothic;
+    }
+
+    &:nth-of-type(2) {
+      float: left;
+      font-size: 10px;
+      padding-right: 1px;
+      padding-bottom: 1px;
+      padding-left: 1px;
+      background-color: #F9F9F9;
+      border-width: 1px;
+      border-style: solid;
+
+      &.user_level_star_1 > i:nth-of-type(n + 2), &.user_level_star_2 > i:nth-of-type(n + 3), &.user_level_star_3 > i:nth-of-type(n + 4), &.user_level_star_4 > i:nth-of-type(n + 5), &.user_level_star_5 > i:nth-of-type(n + 6) {
+        display: none;
+      }
+    }
+  }
+
+  &.user_level_brown {
+    & > div:nth-of-type(1) {
+      background-color: @user_level_brown;
+    }
+
+    & > div:nth-of-type(2) {
+      color: @user_level_brown;
+      border-color: @user_level_brown;
+    }
+  }
+
+  &.user_level_silver {
+    & > div:nth-of-type(1) {
+      background-color: @user_level_silver;
+    }
+
+    & > div:nth-of-type(2) {
+      color: @user_level_silver;
+      border-color: @user_level_silver;
+    }
+  }
+
+  &.user_level_gold {
+    & > div:nth-of-type(1) {
+      background-color: @user_level_gold;
+    }
+
+    & > div:nth-of-type(2) {
+      color: @user_level_gold;
+      border-color: @user_level_gold;
+    }
+  }
+}
+
+.user_rank {
+  & > img {
+    width: 22px;
+    height: 22px;
+    display: block;
+    margin-top: 3px;
+    margin-left: 4px;
+  }
+
+  & > div {
+    width: 30px;
+    color: #F9F9F9;
+    margin-top: -2px;
+    text-align: center;
+    font-size: 10px;
+    font-family: JejuGothic;
+  }
+}
+
+.user_play_stat {
+  & > img {
+    width: 24px;
+    height: 22px;
+    display: block;
+    margin-top: 3px;
+    border-width: 1px;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: #263248;
+    background-color: #F5F5F5;
+  }
+
+  & > div:nth-of-type(1) {
+    width: 24px;
+    color: #F5F5F5;
+    margin-top: -2px;
+    text-align: center;
+    font-size: 10px;
+    font-family: JejuGothic;
+  }
+}

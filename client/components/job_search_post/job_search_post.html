@@ -1,0 +1,118 @@
+<div class="job_search_post">
+  <div class="row">
+    <div class="column_12">
+      <div class="text" style="float: left; color: #7E8AA2;">
+        타입
+      </div>
+      <div class="label blue" style="float: left; margin-left: 5px;" ng-show="$ctrl.post.type.quick == true">
+        빠른대전
+      </div>
+      <div class="label purple" style="float: left; margin-left: 5px;" ng-show="$ctrl.post.type.competitive == true">
+        경쟁전
+      </div>
+      <div class="label green" style="float: left; margin-left: 5px;" ng-show="$ctrl.post.type.etc == true">
+        기타
+      </div>
+      <div class="text" style="float: right; color: #777777;">
+        {{ $ctrl.post.date | date: 'yyyy-MM-dd' }}&nbsp;&nbsp;<i class="fa fa-clock-o" style="color: #3996D4"></i> {{ $ctrl.post.date | date: 'HH:mm' }}
+      </div>
+    </div>
+  </div>
+  <div class="row" style="height: 5px;"></div>
+  <div class="row">
+    <div class="column_12">
+      <img style="float: left; width: 36px; height: 36px;" ng-src="{{ $ctrl.post.user.portrait }}">
+      <div class="user_battletag" style="float: left; color: #3996D4; margin-top: 9px; margin-left: 10px;" ng-click="show_context_menu($event)">
+        {{ $ctrl.post.user.battletag }}
+      </div>
+      <div class="user_level {{ 'user_level_' + $ctrl.post.user.level.color }}" style="float: left; margin-top: 10px; margin-left: 5px;">
+        <div>
+          {{ $ctrl.post.user.level.level }}
+        </div>
+        <div class="{{ 'user_level_star_' + $ctrl.post.user.level.star_number }}" ng-show="$ctrl.post.user.level.star_number != 0">
+          <i class="fa fa-star" style="margin-top: 0px;"></i>
+          <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+          <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+          <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+          <i class="fa fa-star" style="margin-top: 0px; margin-left: -4px;"></i>
+        </div>
+      </div>
+      <div class="user_rank" style="float: left;">
+        <img ng-src="{{ $ctrl.post.user.rank.rank_icon }}">
+        <div style="color: #000000;">
+          {{ $ctrl.post.user.rank.rank }}
+        </div>
+      </div>
+      <div class="label blue" style="float: left; margin-top: 10px; margin-right: 5px; margin-left: 5px;" ng-show="$ctrl.post.type.competitive != true">
+        빠대전적
+      </div>
+      <div class="label purple" style="float: left; margin-top: 10px; margin-right: 5px; margin-left: 5px;" ng-show="$ctrl.post.type.competitive == true">
+        경쟁전적
+      </div>
+      <div class="user_play_stat" style="float: left;" ng-show="$ctrl.post.type.competitive != true">
+        <img ng-src="{{ $ctrl.post.user.quick_play[0].hero_icon }}">
+        <div style="color: #000000;">
+          {{ $ctrl.post.user.quick_play[0].play_time }}
+        </div>
+      </div>
+      <div class="user_play_stat" style="float: left;" ng-show="$ctrl.post.type.competitive != true">
+        <img ng-src="{{ $ctrl.post.user.quick_play[1].hero_icon }}">
+        <div style="color: #000000;">
+          {{ $ctrl.post.user.quick_play[1].play_time }}
+        </div>
+      </div>
+      <div class="user_play_stat" style="float: left;" ng-show="$ctrl.post.type.competitive != true">
+        <img ng-src="{{ $ctrl.post.user.quick_play[2].hero_icon }}">
+        <div style="color: #000000;">
+          {{ $ctrl.post.user.quick_play[2].play_time }}
+        </div>
+      </div>
+      <div class="user_play_stat" style="float: left;" ng-show="$ctrl.post.type.competitive == true">
+        <img ng-src="{{ $ctrl.post.user.competitive_play[0].hero_icon }}">
+        <div style="color: #000000;">
+          {{ $ctrl.post.user.competitive_play[0].play_time }}
+        </div>
+      </div>
+      <div class="user_play_stat" style="float: left;" ng-show="$ctrl.post.type.competitive == true">
+        <img ng-src="{{ $ctrl.post.user.competitive_play[1].hero_icon }}">
+        <div style="color: #000000;">
+          {{ $ctrl.post.user.competitive_play[1].play_time }}
+        </div>
+      </div>
+      <div class="user_play_stat" style="float: left;" ng-show="$ctrl.post.type.competitive == true">
+        <img ng-src="{{ $ctrl.post.user.competitive_play[2].hero_icon }}">
+        <div style="color: #000000;">
+          {{ $ctrl.post.user.competitive_play[2].play_time }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="height: 5px;"></div>
+  <div class="row">
+    <div class="column_12">
+      <div class="text" style="float: left; color: #7E8AA2;">
+        태그
+      </div>
+      <div class="label red" style="float: left; margin-left: 5px;" ng-show="$ctrl.post.position.dealer == true">
+        <img style="width: 7px; height: 7px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/dealer.svg"> 딜러가능
+      </div>
+      <div class="label blue" style="float: left; margin-left: 5px;" ng-show="$ctrl.post.position.tanker == true">
+        <img style="width: 7px; height: 7px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/tanker.svg"> 탱커가능
+      </div>
+      <div class="label yellow" style="float: left; margin-left: 5px;" ng-show="$ctrl.post.position.healer == true">
+        <img style="width: 7px; height: 7px;" src="https://s3.ap-northeast-2.amazonaws.com/overmatch-dtfu90ku/images/healer.svg"> 힐러가능
+      </div>
+      <div class="label purple" style="float: left; margin-left: 5px;" ng-show="$ctrl.post.mic == true">
+        <i class="fa fa-microphone"></i> 마이크가능
+      </div>
+    </div>
+  </div>
+  <div class="row" style="height: 5px;"></div>
+  <div class="row">
+    <div class="column_12">
+      <div class="text">
+        {{ $ctrl.post.comment }}
+      </div>
+    </div>
+  </div>
+</div>
