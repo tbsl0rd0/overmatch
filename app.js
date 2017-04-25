@@ -57,21 +57,24 @@ if (process.env.NODE_ENV != 'production') {
   app.use(morgan('dev'));
 }
 app.use(body_parser.json());
-app.use(body_parser.urlencoded({ extended: false }));
+app.use(body_parser.urlencoded({
+  extended: false
+}));
 app.use(serve_favicon(path.join(__dirname, 'server/favicon/favicon.ico')));
 var kemfl112 = express_session({
   resave: false,
   secret: 'mmk3aads',
   saveUninitialized: true,
   cookie: { maxAge: 7 * 24 * 60 * 60 * 1000 },
-  store: new connect_mongo({ url: process.env.NODE_ENV != 'production' ? 'mongodb://localhost/overmatch' : 'mongodb://172.31.12.84/overmatch' })
+  store: new connect_mongo({
+    url: process.env.NODE_ENV != 'production' ? 'mongodb://localhost/overmatch' : 'mongodb://172.31.12.84/overmatch'
+  })
 })
 app.use(kemfl112);
 
-app.use(express.static(path.join(__dirname, 'client/dist')));
-app.use(express.static(path.join(__dirname, 'client/images')));
 app.use(express.static(path.join(__dirname, 'client/robots')));
 app.use(express.static(path.join(__dirname, 'client/webmaster')));
+app.use(express.static(path.join(__dirname, 'client/distribution')));
 
 server_socket.use(socket_io_express_session(kemfl112));
 
