@@ -10,23 +10,25 @@ server_socket.on('connection', function(socket) {
 
     mongodb.get_db(function(db) {
       db.collection('users').updateOne({ socket_id: socket.id }, { $set: { current_matching_room_uuid: null } })
-      .then(function(r) {
+      .then(function(result) {
         socket.leave(data.matching_room_uuid);
 
         return db.collection('matching_rooms').findOne({ uuid: data.matching_room_uuid });
       })
       .then(function(doc) {
-        // 멤버리스트에 내 배틀태그가 없는 경우
-        if (_.findIndex(doc.members, { battletag: socket.handshake.session.user.battletag }) == -1) {
+        // 멤버 리스트에 내 배틀태그가 없는 경우
+        if (!_.find(doc.members, function(member) {
+          return member.battletag == socket.handshake.session.user.battletag;
+        })) {
           db.close();
 
           return;
         }
 
         // 멤버가 1명이고 내 배틀태그인 경우
-        if (doc.members.length == 1 && doc.forever == false) {
+        if (doc.members.length == 1) {
           db.collection('matching_rooms').deleteOne({ uuid: data.matching_room_uuid })
-          .then(function(r) {
+          .then(function(result) {
             db.close();
 
             server_socket.in('matching_room_board').emit('matching_room_board', {
@@ -39,11 +41,11 @@ server_socket.on('connection', function(socket) {
         }
 
         // 멤버가 2명 이상이고 그중에 내 배틀태그가 있고 방장이 아닌 경우
-        if (socket.handshake.session.user.battletag != doc.owner.battletag) {
+        if (doc.owner.battletag != socket.handshake.session.user.battletag) {
           doc.members.splice(_.findIndex(doc.members, { battletag: socket.handshake.session.user.battletag }), 1);
 
           db.collection('matching_rooms').updateOne({ uuid: data.matching_room_uuid }, { $set: { members: doc.members } })
-          .then(function(r) {
+          .then(function(result) {
             db.close();
 
             server_socket.in('matching_room_board').emit('matching_room_board', {
@@ -66,7 +68,7 @@ server_socket.on('connection', function(socket) {
         doc.owner = doc.members[0];
 
         db.collection('matching_rooms').updateOne({ uuid: data.matching_room_uuid }, { $set: { owner: doc.owner, members: doc.members } })
-        .then(function(r) {
+        .then(function(result) {
           db.close();
 
           server_socket.in('matching_room_board').emit('matching_room_board', {

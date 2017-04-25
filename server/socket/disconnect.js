@@ -14,7 +14,7 @@ server_socket.on('connection', function(socket) {
         }
 
         db.collection('users').deleteOne({ socket_id: socket.id })
-        .then(function(r) {
+        .then(function(result) {
           if (!doc_2.current_matching_room_uuid) {
             db.close();
 
@@ -23,17 +23,19 @@ server_socket.on('connection', function(socket) {
 
           db.collection('matching_rooms').findOne({ uuid: doc_2.current_matching_room_uuid })
           .then(function(doc) {
-            // 멤버리스트에 내 배틀태그가 없는 경우
-            if (_.findIndex(doc.members, { battletag: doc_2.battletag }) == -1) {
+            // 멤버 리스트에 내 배틀태그가 없는 경우
+            if (!_.find(doc.members, function(member) {
+              return member.battletag == doc_2.battletag;
+            })) {
               db.close();
 
               return;
             }
 
             // 멤버가 1명이고 내 배틀태그인 경우
-            if (doc.members.length == 1 && doc.forever == false) {
+            if (doc.members.length == 1) {
               db.collection('matching_rooms').deleteOne({ uuid: doc_2.current_matching_room_uuid })
-              .then(function(r) {
+              .then(function(result) {
                 db.close();
 
                 server_socket.in('matching_room_board').emit('matching_room_board', {
@@ -50,7 +52,7 @@ server_socket.on('connection', function(socket) {
               doc.members.splice(_.findIndex(doc.members, { battletag: doc_2.battletag }), 1);
 
               db.collection('matching_rooms').updateOne({ uuid: doc_2.current_matching_room_uuid }, { $set: { members: doc.members } })
-              .then(function(r) {
+              .then(function(result) {
                 db.close();
 
                 server_socket.in('matching_room_board').emit('matching_room_board', {
@@ -73,7 +75,7 @@ server_socket.on('connection', function(socket) {
             doc.owner = doc.members[0];
 
             db.collection('matching_rooms').updateOne({ uuid: doc_2.current_matching_room_uuid }, { $set: { owner: doc.owner, members: doc.members } })
-            .then(function(r) {
+            .then(function(result) {
               db.close();
 
               server_socket.in('matching_room_board').emit('matching_room_board', {
