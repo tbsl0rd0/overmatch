@@ -25,7 +25,7 @@ gulp.task('admin_css', function () {
 		'node_modules/normalize.css/normalize.css',
 		'node_modules/semantic-ui-input/input.min.css',
 
-		'client/libs/font-awesome-4.7.0/css/font-awesome.min.css',
+		'client/libraries/font-awesome-4.7.0/css/font-awesome.min.css',
 
 		'client/fonts/fonts.css'
   ])
@@ -43,7 +43,7 @@ gulp.task('index_js', function () {
 		'node_modules/socket.io-client/dist/socket.io.js',
 		'node_modules/angular-animate/angular-animate.min.js',
 
-		'client/libs/clipboard-js/clipboard.min.js',
+		'client/libraries/clipboard-js/clipboard.min.js',
 
 		'client/analytics/analytics.js',
 		'client/socket/client_socket.js',
@@ -60,7 +60,7 @@ gulp.task('index_css', function () {
 		'node_modules/normalize.css/normalize.css',
 		'node_modules/semantic-ui-input/input.min.css',
 
-		'client/libs/font-awesome-4.7.0/css/font-awesome.min.css',
+		'client/libraries/font-awesome-4.7.0/css/font-awesome.min.css',
 
 		'client/fonts/fonts.css'
   ])
