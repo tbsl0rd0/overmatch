@@ -67,7 +67,7 @@ var kemfl112 = express_session({
   saveUninitialized: true,
   cookie: { maxAge: 7 * 24 * 60 * 60 * 1000 },
   store: new connect_mongo({
-    url: process.env.NODE_ENV != 'production' ? 'mongodb://localhost/overmatch' : 'mongodb://172.31.12.84/overmatch'
+    url: process.env.NODE_ENV != 'production' ? 'mongodb://localhost/overmatch' : 'mongodb://172.31.3.112/overmatch'
   })
 })
 app.use(kemfl112);
